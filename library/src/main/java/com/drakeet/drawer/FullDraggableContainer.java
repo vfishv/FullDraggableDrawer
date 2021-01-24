@@ -33,8 +33,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import static java.util.Objects.requireNonNull;
-
 /**
  * @author Drakeet Xu
  */
