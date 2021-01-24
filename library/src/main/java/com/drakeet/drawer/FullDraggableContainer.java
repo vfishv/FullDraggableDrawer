@@ -142,7 +142,10 @@ public class FullDraggableContainer extends FrameLayout implements FullDraggable
 
   protected void setDrawerToOffset(int gravity, float offset) {
     View drawerView = findDrawerWithGravity(gravity);
-    float slideOffsetPercent = MathUtils.clamp(offset / requireNonNull(drawerView).getWidth(), 0f, 1f);
+    if (drawerView == null) {
+      return;
+    }
+    float slideOffsetPercent = MathUtils.clamp(offset / drawerView.getWidth(), 0f, 1f);
     try {
       Method method = DrawerLayout.class.getDeclaredMethod("moveDrawerToOffset", View.class, float.class);
       method.setAccessible(true);
